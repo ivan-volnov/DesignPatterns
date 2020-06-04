@@ -4,7 +4,7 @@ Some code to illustrate various design patterns in C++
 
 ## Behavioral
 
-In software engineering, behavioral design patterns are design patterns that
+Behavioral design patterns are design patterns that
 identify common communication patterns between objects and realize these
 patterns. By doing so, these patterns increase flexibility in carrying out this communication
 
@@ -22,7 +22,7 @@ patterns. By doing so, these patterns increase flexibility in carrying out this 
 
 ## Creational
 
-In software engineering, creational design patterns are design patterns that
+Creational design patterns are design patterns that
 deal with object creation mechanisms, trying to create objects in a manner
 suitable to the situation. The basic form of object creation could result
 in design problems or added complexity to the design. Creational design
@@ -36,8 +36,8 @@ patterns solve this problem by somehow controlling this object creation
 
 ## Structural
 
-In software engineering, structural design patterns are design patterns that
-ease the design by identifying a simple way to realize relationships between entities
+Structural design patterns are design patterns that ease the design
+by identifying a simple way to realize relationships between entities
 
 - [Adapter](Structural/Adapter.cpp) (Wrapper)
 - [Bridge](Structural/Bridge.cpp) (Handle/Body)
