@@ -67,7 +67,7 @@ public:
 };
 
 
-int main()
+void VisitorTest()
 {
     Visitor *visitor = new VisitorA();
     Element *element = new ElementA();

@@ -27,7 +27,7 @@ class AbstractExpression
 {
 public:
     virtual void interpret(Context &) = 0;
-}
+};
 
 
 class UpExpression : public AbstractExpression
@@ -55,7 +55,7 @@ public:
 };
 
 
-int main()
+void InterpreterTest()
 {
     Context context("abcDeFGhi");
     (new UpExpression())->interpret(context);

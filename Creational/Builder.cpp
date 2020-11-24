@@ -140,7 +140,7 @@ public:
 };
 
 
-int main()
+void BuilderTest()
 {
     Eater eater;
 }

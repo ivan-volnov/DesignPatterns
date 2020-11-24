@@ -70,7 +70,7 @@ private:
 };
 
 
-int main()
+void CompositeTest()
 {
     Component *cpn = new Composite();
     cpn->add(new Leaf1);

@@ -40,7 +40,7 @@ public:
 };
 
 
-int main()
+void ObserverTest()
 {
     Subject sub;
     ConcreteObserver co;

@@ -1,61 +1,87 @@
-#include <iostream>
-using namespace std;
+#include <catch2/catch.hpp>
+
+
+class Context;
+
 
 
 class State
 {
+    friend class Context;
+
 public:
-    virtual void Handle() = 0;
+    virtual ~State() = default;
+    virtual std::string handle() = 0;
+
+protected:
+    Context *m_context = nullptr;
 };
+
 
 
 class Context
 {
 public:
-    void SetState(State *state) {
-        _state = state;
+    Context(std::unique_ptr<State> &&state)
+    {
+        switch_to(std::move(state));
     }
 
-    State *GetState()
+    void switch_to(std::unique_ptr<State> &&state)
     {
-        return _state;
+        if ((m_state = std::move(state))) {
+            m_state->m_context = this;
+        }
     }
 
-    void Request()
+    std::string handle_request()
     {
-        _state->Handle();
+        return m_state ? m_state->handle() : "do nothing";
     }
 
 private:
-    State *_state;
+    std::unique_ptr<State> m_state;
 };
 
 
-class ConcreteStateA : public State
+
+class StateB : public State
 {
 public:
-    void Handle()
-    {
-        cout << "This is state A" << endl;
-    }
+    std::string handle() override;
 };
 
 
-class ConcreteStateB : public State
+
+class StateA : public State
 {
 public:
-    void Handle()
-    {
-        cout << "This is state B" << endl;
-    }
+    std::string handle() override;
 };
 
 
-int main()
+
+std::string StateA::handle()
 {
-    Context context;
-    context.SetState(new ConcreteStateA());
-    context.Request();
-    context.SetState(new ConcreteStateB());
-    context.Request();
+    m_context->switch_to(std::make_unique<StateB>());
+    return "StateA::handle()";
+}
+
+
+
+std::string StateB::handle()
+{
+    m_context->switch_to(std::make_unique<StateA>());
+    return "StateB::handle()";
+}
+
+
+
+TEST_CASE("Behavioral/State")
+{
+    auto context = std::make_unique<Context>(std::make_unique<StateA>());
+
+    REQUIRE(context->handle_request() == "StateA::handle()");
+    REQUIRE(context->handle_request() == "StateB::handle()");
+    REQUIRE(context->handle_request() == "StateA::handle()");
 }

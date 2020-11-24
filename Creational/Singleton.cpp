@@ -12,7 +12,7 @@ private:
 };
 
 
-int main()
+void SingletonTest()
 {
     Singleton *single = Singleton::instance();
 }

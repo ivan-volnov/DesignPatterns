@@ -91,7 +91,7 @@ private:
 };
 
 
-int main()
+void AdapterTest()
 {
     Bike *bike = new DualAdapter2(new Car, new Bike);
     bike->ride();

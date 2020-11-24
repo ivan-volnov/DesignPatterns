@@ -38,7 +38,7 @@ public:
 };
 
 
-int main()
+void TemplateMethodTest()
 {
     AbstractClass *ac = new ConcreateClass;
     ac->TemplateMethod();

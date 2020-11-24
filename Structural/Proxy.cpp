@@ -39,7 +39,7 @@ private:
 };
 
 
-int main()
+void ProxyTest()
 {
     IObject *object = new IObjectProxy;
     object->operation();

@@ -74,7 +74,7 @@ private:
 };
 
 
-int main()
+void MementoTest()
 {
     Rect rect(1, 2);
     rect.Say();

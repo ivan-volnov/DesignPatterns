@@ -2,8 +2,6 @@
 using namespace std;
 
 
-class List;
-
 
 template<typename T>
 class Iterator
@@ -16,11 +14,41 @@ public:
 };
 
 
+
+template<typename T>
+class ListIterator;
+
+
+
+class List
+{
+    friend class ListIterator<int>;
+
+public:
+    List()
+    {
+        for (int i = 0; i < 10; i++) {
+            _a[i] = i;
+        }
+    }
+
+    Iterator<int> *CreateIterator();
+
+private:
+    int _a[10];
+};
+
+
+
 template<typename T>
 class ListIterator : public Iterator<T>
 {
 public:
-    ListIterator<T>(List *list) : _list(list), count(0) { }
+    ListIterator<T>(List *list) : count(0), _list(list)
+    {
+
+    }
+
     void First()
     {
         count = 0;
@@ -47,28 +75,15 @@ private:
 };
 
 
-class List
+
+Iterator<int> *List::CreateIterator()
 {
-public:
-    friend class ListIterator<int>;
-    List()
-    {
-        for (int i = 0; i < 10; i++) {
-            _a[i] = i;
-        }
-    }
-
-    Iterator<int> *CreateIterator()
-    {
-        return new ListIterator<int>(this);
-    }
-
-private:
-    int _a[10];
-};
+    return new ListIterator<int>(this);
+}
 
 
-int main()
+
+void IteratorTest()
 {
     List list;
     Iterator<int> *itr = list.CreateIterator();
@@ -76,4 +91,3 @@ int main()
     itr->Next();
     cout << itr->CurrentItem() << endl;
 }
-

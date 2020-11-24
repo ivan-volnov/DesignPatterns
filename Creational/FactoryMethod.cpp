@@ -77,7 +77,7 @@ public:
 };
 
 
-int main()
+void FactoryMethodTest()
 {
     //BreadFactory *factory = new WhiteBreadFactory();
     BreadFactory *factory = new NewBreadFactory<WhiteBread>();

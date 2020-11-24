@@ -71,7 +71,7 @@ public:
 };
 
 
-int main()
+void DecoratorTest()
 {
     Paper *paper = new LineDecorator(new BorderDecorator(new BasicPaper));
     cout << paper->draw() << endl;

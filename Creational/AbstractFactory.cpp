@@ -94,7 +94,7 @@ public:
 };
 
 
-int main()
+void AbstractFactoryTest()
 {
     Factory *factory = new SummerFactory();
     Tree *tree = factory->createTree();

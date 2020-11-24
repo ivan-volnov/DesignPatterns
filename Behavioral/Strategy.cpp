@@ -47,7 +47,7 @@ public:
 };
 
 
-int main()
+void StrategyTest()
 {
     Context contexta(new ConcreteStrategyA);
     contexta.DoSomething();

@@ -83,7 +83,7 @@ public:
 };
 
 
-int main()
+void ChainOfResponsibilityTest()
 {
     IHandler *readHandler = new IReadHander(0);
     IHandler *writeHandler = new IWriteHander(readHandler);

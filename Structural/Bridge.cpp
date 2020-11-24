@@ -68,7 +68,7 @@ public:
 };
 
 
-int main()
+void BridgeTest()
 {
     Bread *bread = new BlackBread;
     bread->setImpl(new RectBread);

@@ -54,7 +54,7 @@ public:
 };
 
 
-int main()
+void CommandTest()
 {
     Invoker *invoker = new Invoker();
     Command *command = new ConcreteCommand(new Receiver());

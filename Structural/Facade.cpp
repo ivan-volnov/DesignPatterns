@@ -83,7 +83,7 @@ private:
     subSystemFour *four;
 };
 
-int main()
+void FacadeTest()
 {
     Facade *facade = new Facade();
 

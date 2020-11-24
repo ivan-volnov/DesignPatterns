@@ -51,7 +51,7 @@ private:
 };
 
 
-int main()
+void FlyweightTest()
 {
     FlyweightFactory *factory = new FlyweightFactory;
     Flyweight *fly = factory->getFlyweight("123");

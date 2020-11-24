@@ -101,7 +101,7 @@ private:
 };
 
 
-int main()
+void PrototypeTest()
 {
     Tools *tool = new Stapler(new A5File(123));
     tool->go();

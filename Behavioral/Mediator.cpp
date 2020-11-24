@@ -87,7 +87,7 @@ private:
 };
 
 
-int main()
+void MediatorTest()
 {
     Mediator *mediator = new Mediator();
     Client *client1 = new Client1(mediator);
